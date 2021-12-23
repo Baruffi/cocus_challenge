@@ -4,8 +4,8 @@ import java.util.Map;
 
 import com.cocus.challenge.bahamas.enums.ExternalServiceCallResolution;
 import com.cocus.challenge.bahamas.helper.EntityMapper;
-import com.cocus.challenge.bahamas.helper.RequestHandler;
 import com.cocus.challenge.bahamas.interfaces.IExternalService;
+import com.cocus.challenge.bahamas.interfaces.IRequestHandler;
 import com.cocus.challenge.bahamas.model.InvoiceClient;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 public class BahamasExternalService implements IExternalService<InvoiceClient> {
 
     @Autowired
-    RequestHandler requestHandler;
+    IRequestHandler requestHandler;
 
     @Value("${bahamas.bahamasUrl}")
     private String bahamasUrl;
