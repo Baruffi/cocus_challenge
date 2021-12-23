@@ -10,13 +10,12 @@ import com.cocus.challenge.bahamas.repo.InvoiceClientRepository;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
-@ExtendWith(MockitoExtension.class)
+@SpringBootTest(classes = InvoiceClientStorageService.class)
 public class InvoiceClientStorageServiceTest {
 
     private static final long ID = 1L;
@@ -28,7 +27,7 @@ public class InvoiceClientStorageServiceTest {
     @InjectMocks
     private InvoiceClientStorageService service;
 
-    @Mock
+    @MockBean
     private InvoiceClientRepository repository;
 
     private InvoiceClient client;
@@ -39,7 +38,7 @@ public class InvoiceClientStorageServiceTest {
     }
 
     @Test
-    void testGet() {
+    void getsFromRepository() {
         when(repository.getById(ID)).thenReturn(client);
 
         InvoiceClient clientGet = service.get(ID);
@@ -48,7 +47,7 @@ public class InvoiceClientStorageServiceTest {
     }
 
     @Test
-    void testSave() {
+    void savesToRepository() {
         service.save(client);
 
         verify(repository, times(1)).save(client);

@@ -16,9 +16,9 @@ public class InvoiceClient {
     protected InvoiceClient() {
     }
 
-    public InvoiceClient(Long invoiceId, String fiscal_id, String name, String email) {
+    public InvoiceClient(Long invoiceId, String fiscalId, String name, String email) {
         this.invoiceId = invoiceId;
-        this.fiscalId = fiscal_id;
+        this.fiscalId = fiscalId;
         this.name = name;
         this.email = email;
     }
@@ -27,7 +27,7 @@ public class InvoiceClient {
         return invoiceId;
     }
 
-    public String getFiscal_id() {
+    public String getFiscalId() {
         return fiscalId;
     }
 
@@ -41,7 +41,7 @@ public class InvoiceClient {
 
     @Override
     public String toString() {
-        return String.format("InvoiceClient [email=%s, fiscal_id=%s, invoiceId=%s, name=%s]", email, fiscalId,
+        return String.format("InvoiceClient [email=%s, fiscalId=%s, invoiceId=%s, name=%s]", email, fiscalId,
                 invoiceId, name);
     }
 }
