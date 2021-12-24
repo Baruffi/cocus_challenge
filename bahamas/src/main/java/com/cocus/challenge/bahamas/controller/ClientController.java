@@ -27,8 +27,12 @@ public class ClientController {
     }
 
     @PostMapping("/store-bahamas-client/{invoiceId}")
-    public void storeClient(@PathVariable Long invoiceId, @RequestParam String fiscalId, @RequestParam String name,
-            @RequestParam String email) {
+    public void storeClient(
+            @PathVariable Long invoiceId,
+            @RequestParam("fiscal_id") String fiscalId,
+            @RequestParam String name,
+            @RequestParam String email
+        ) {
         InvoiceClient client = new InvoiceClient(invoiceId, fiscalId, name, email);
 
         ExternalServiceCallResolution resolution = bahamasService.call(client);
