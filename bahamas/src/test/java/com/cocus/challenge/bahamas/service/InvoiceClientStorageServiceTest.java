@@ -5,6 +5,8 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.Optional;
+
 import com.cocus.challenge.bahamas.model.InvoiceClient;
 import com.cocus.challenge.bahamas.repo.InvoiceClientRepository;
 
@@ -39,7 +41,7 @@ public class InvoiceClientStorageServiceTest {
 
     @Test
     void getsFromRepository() {
-        when(repository.getById(ID)).thenReturn(client);
+        when(repository.findById(ID)).thenReturn(Optional.of(client));
 
         InvoiceClient clientGet = service.get(ID);
 

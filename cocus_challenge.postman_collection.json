@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "977b9430-4adb-4fc0-878e-6433d474638b",
+		"name": "cocus_challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "retrieve-bahamas-client",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/retrieve-bahamas-client/1234",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"retrieve-bahamas-client",
+						"1234"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "store-bahamas-client",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/store-bahamas-client/1234?fiscal_id=999999999&name=bob&email=bob@bob.com",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"store-bahamas-client",
+						"1234"
+					],
+					"query": [
+						{
+							"key": "fiscal_id",
+							"value": "999999999"
+						},
+						{
+							"key": "name",
+							"value": "bob"
+						},
+						{
+							"key": "email",
+							"value": "bob@bob.com"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

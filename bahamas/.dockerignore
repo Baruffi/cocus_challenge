@@ -1,0 +1,6 @@
+.mvn
+*.md
+*.log
+mvnw
+mvnw.cmd
+target/

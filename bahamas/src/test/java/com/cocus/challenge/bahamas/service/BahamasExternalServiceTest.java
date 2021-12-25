@@ -46,10 +46,10 @@ public class BahamasExternalServiceTest {
 
     @Test
     void succeedsOnCallResolutionWhenResponseIsOk() {
-        ResponseEntity<Object> response = new ResponseEntity<>(HttpStatus.OK);
+        ResponseEntity<String> response = new ResponseEntity<>(HttpStatus.OK);
         Map<String, String> map = EntityMapper.entityToStringMap(client);
 
-        when(requestHandler.post(anyString(), any(), eq(map), eq(Object.class))).thenReturn(response);
+        when(requestHandler.post(anyString(), any(), eq(map), eq(String.class))).thenReturn(response);
 
         ExternalServiceCallResolution resolution = service.call(client);
 
@@ -58,10 +58,10 @@ public class BahamasExternalServiceTest {
 
     @Test
     void failsOnCallResolutionWhenResponseIsNotOk() {
-        ResponseEntity<Object> response = new ResponseEntity<>(HttpStatus.BAD_REQUEST); // Arbitrary not ok response
+        ResponseEntity<String> response = new ResponseEntity<>(HttpStatus.BAD_REQUEST); // Arbitrary not ok response
         Map<String, String> map = EntityMapper.entityToStringMap(client);
 
-        when(requestHandler.post(anyString(), any(), eq(map), eq(Object.class))).thenReturn(response);
+        when(requestHandler.post(anyString(), any(), eq(map), eq(String.class))).thenReturn(response);
 
         ExternalServiceCallResolution resolution = service.call(client);
 

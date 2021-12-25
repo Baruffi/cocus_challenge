@@ -23,17 +23,17 @@ public class BahamasExternalService implements IExternalService<InvoiceClient> {
     @Value("${bahamas.bahamasUrl}")
     private String bahamasUrl;
 
-    private ResponseEntity<Object> exchange(InvoiceClient client) {
+    private ResponseEntity<String> exchange(InvoiceClient client) {
         Map<String, String> map = EntityMapper.entityToStringMap(client);
 
-        ResponseEntity<Object> response = requestHandler.post(bahamasUrl, null, map, Object.class);
+        ResponseEntity<String> response = requestHandler.post(bahamasUrl, null, map, String.class);
 
         return response;
     }
 
     @Override
     public ExternalServiceCallResolution call(InvoiceClient client) {
-        ResponseEntity<Object> response = exchange(client);
+        ResponseEntity<String> response = exchange(client);
 
         if (response.getStatusCode() == HttpStatus.OK) {
             return ExternalServiceCallResolution.SUCCESS;

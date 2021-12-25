@@ -15,7 +15,7 @@ public class InvoiceClientStorageService implements IStorageService<InvoiceClien
 
     @Override
     public InvoiceClient get(Long invoiceId) {
-        InvoiceClient client = repository.getById(invoiceId);
+        InvoiceClient client = repository.findById(invoiceId).get();
 
         return client;
     }

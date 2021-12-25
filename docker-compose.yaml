@@ -6,7 +6,15 @@ services:
       context: bahamas
       dockerfile: Dockerfile
     ports:
-        - 8080:8080
+      - 8080:8080
+    depends_on:
+      - database
+      - gov_mock
+  gov_mock:
+    container_name: bahamas_gov_mock
+    build:
+      context: gov_mock
+      dockerfile: Dockerfile
   database:
     container_name: bahamas_postgres
     env_file: .env.postgres
